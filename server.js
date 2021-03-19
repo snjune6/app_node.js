@@ -6,7 +6,7 @@ const port = 80;
 const MongoClient = require('mongodb').MongoClient;
 
 var db;
-MongoClient.connect('mongodb+srv://snjune6:faeqe14587@cluster0.ohyu1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', function(err, client){
+MongoClient.connect('mongodb+srv://snjune6:faeqe14587@cluster0.ohyu1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useUnifiedTopology:true}, function(err, client){
    
     if (err) return console.log(err);
    /* 
@@ -22,8 +22,8 @@ MongoClient.connect('mongodb+srv://snjune6:faeqe14587@cluster0.ohyu1.mongodb.net
 
     
 
-    app.listen(port, function() {
-      console.log('listening on ${port}')
+    app.listen(8080, function() {
+      console.log('listening on 80')
     });
 
   });
@@ -74,5 +74,6 @@ app.delete('/delete', function(request, response){
     request.body._id = parseInt(request.body._id);
     db.collection('post').deleteOne(request.body, function(error, result){
         console.log('삭제완료');
+        response.status(200).send({ message : '성공했습니다.' });
     });
 });

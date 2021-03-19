@@ -47,13 +47,16 @@
 
             $(".delete").click(function(e){
                 var wordnum = e.target.dataset.id;
-
+                var btnthis = $(this);
                 $.ajax({
                     method: 'DELETE',
                     url: '/delete',
                     data: { _id: wordnum }
                 }).done(function (result) {
-
+                    console.log('성공');
+                    btnthis.parent('li').fadeOut();
+                }).fail(function(xhr, textStatus, errorThorwn){
+                    console.log(xhr, textStatus, errorThorwn);
                 });
             });
 
