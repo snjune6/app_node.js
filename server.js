@@ -2,7 +2,7 @@ const express = require('express');
 var app = express();
 app.use(express.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
-
+const port = process.env.PORT || 80;
 const MongoClient = require('mongodb').MongoClient;
 
 var db;
@@ -22,8 +22,8 @@ MongoClient.connect('mongodb+srv://snjune6:faeqe14587@cluster0.ohyu1.mongodb.net
 
     
 
-    app.listen(80, function() {
-      console.log('listening on 80')
+    app.listen(port, function() {
+      console.log('listening on ${port')
     });
 
   });
