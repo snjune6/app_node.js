@@ -2,7 +2,7 @@ const express = require('express');
 var app = express();
 app.use(express.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
-const port = process.env.PORT || 80;
+const port = 80;
 const MongoClient = require('mongodb').MongoClient;
 
 var db;
