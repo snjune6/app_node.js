@@ -23,7 +23,7 @@ MongoClient.connect('mongodb+srv://snjune6:faeqe14587@cluster0.ohyu1.mongodb.net
     
 
     app.listen(port, function() {
-      console.log('listening on ${port')
+      console.log('listening on ${port}')
     });
 
   });
